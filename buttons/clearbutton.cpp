@@ -1,6 +1,6 @@
-#include "equalbutton.h"
+#include "clearbutton.h"
 
-EqualButton::EqualButton(QWidget *parent) : QPushButton(parent) {
+ClearButton::ClearButton(QWidget *parent) : QPushButton(parent) {
     setText(QString("="));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QFont font = this->font();

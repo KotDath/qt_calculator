@@ -9,9 +9,17 @@ class ResultBar : public QWidget {
 public:
     explicit ResultBar(QWidget *parent = nullptr);
 public slots:
-    void Append(QString str);
+    void Append(int number);
+    void UnaryOperation(std::function<double(double)> op);
+    void Clear();
 private:
     QLineEdit* resultText;
+    double firstNumber = 0;
+    double secondNumber = 0;
+    bool unaryOperationPass = false;
+    bool isWholePart = true;
+    bool binaryOperationBegin = false;
+
 };
 
 #endif // RESULTBAR_H

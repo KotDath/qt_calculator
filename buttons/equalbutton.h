@@ -7,7 +7,7 @@ class EqualButton : public QPushButton
 {
     Q_OBJECT
 public:
-    EqualButton();
+    EqualButton(QWidget *parent = nullptr);
 };
 
 #endif // EQUALBUTTON_H

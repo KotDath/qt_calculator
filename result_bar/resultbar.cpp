@@ -2,9 +2,9 @@
 ResultBar::ResultBar(QWidget *parent) : QWidget(parent) {
     auto topLayout = new QHBoxLayout{this};
     resultText = new QLineEdit{};
+    resultText->setText("0");
     resultText->setAlignment(Qt::AlignRight);
     topLayout->addWidget(resultText);
-    setStyleSheet("background-color: red");
     resultText->setFixedHeight(100);
     auto font = resultText->font();
     font.setFamily("monospace [Consolas]");
@@ -13,6 +13,24 @@ ResultBar::ResultBar(QWidget *parent) : QWidget(parent) {
     resultText->setReadOnly(true);
 }
 
-void ResultBar::Append(QString str) {
-    resultText->insert(str);
+void ResultBar::Append(int number) {
+    if (unaryOperationPass) {
+         firstNumber = number;
+         unaryOperationPass = false;
+    } else {
+        firstNumber *= 10;
+        firstNumber += number;
+    }
+    resultText->setText(QString::number(firstNumber));
+}
+
+void ResultBar::UnaryOperation(std::function<double(double)> op) {
+    firstNumber = op(firstNumber);
+    resultText->setText(QString::number(firstNumber));
+    unaryOperationPass = true;
+}
+
+void ResultBar::Clear() {
+    firstNumber = 0;
+    resultText->setText(QString::number(firstNumber));
 }

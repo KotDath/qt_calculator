@@ -3,6 +3,9 @@
 
 #include <QRadioButton>
 #include <QVBoxLayout>
+#include <QDebug>
+
+class MainWindow;
 
 class Switcher : public QWidget
 {
@@ -10,8 +13,10 @@ class Switcher : public QWidget
 public:
     explicit Switcher(QWidget *parent = nullptr);
 
-signals:
-
+    void LinkWithWindow(MainWindow* window);
+private:
+    QRadioButton* casualMode;
+    QRadioButton* professionalMode;
 };
 
 #endif // SWITCHER_H

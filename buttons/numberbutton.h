@@ -12,7 +12,7 @@ private:
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
 signals:
-    void PressButtonSome(QString str);
+    void PressButtonSome(int value);
 };
 
 #endif // NUMBERBUTTON_H

@@ -6,7 +6,9 @@
 #include "buttons/numberbutton.h"
 #include "buttons/equalbutton.h"
 #include "buttons/unaryoperationbutton.h"
+#include "buttons/dotbutton.h"
 #include "result_bar/resultbar.h"
+#include "buttons/binaryoperationbutton.h"
 
 class MainCalculatorPanel : public QWidget {
     Q_OBJECT
@@ -18,7 +20,10 @@ public slots:
 signals:
     void PrintLabel(int number);
 private:
-    UnaryOperationButton** buttons;
+    UnaryOperationButton** unaryButtons;
+    BinaryOperationButton** binaryButtons;
+    DotButton* dotButton;
+    EqualButton* equalButton;
 };
 
 #endif // MAINCALCULATORPANEL_H

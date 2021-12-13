@@ -10,7 +10,9 @@ CONFIG += console
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    buttons/binaryoperationbutton.cpp \
     buttons/clearbutton.cpp \
+    buttons/dotbutton.cpp \
     buttons/equalbutton.cpp \
     buttons/numberbutton.cpp \
     buttons/unaryoperationbutton.cpp \
@@ -22,7 +24,9 @@ SOURCES += \
     switcher/switcher.cpp
 
 HEADERS += \
+    buttons/binaryoperationbutton.h \
     buttons/clearbutton.h \
+    buttons/dotbutton.h \
     buttons/equalbutton.h \
     buttons/numberbutton.h \
     buttons/unaryoperationbutton.h \

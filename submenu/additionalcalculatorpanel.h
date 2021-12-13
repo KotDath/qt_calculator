@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include "buttons/unaryoperationbutton.h"
 #include "result_bar/resultbar.h"
+#include "buttons/binaryoperationbutton.h"
 
 class AdditionalCalculatorPanel : public QWidget
 {
@@ -16,8 +17,8 @@ public:
     void InitActions();
     void ConnectButtons(ResultBar* bar);
 private:
-    UnaryOperationButton** buttons;
-
+    UnaryOperationButton** unaryButtons;
+    BinaryOperationButton** binaryButtons;
 };
 
 #endif // ADDITIONALCALCULATORPANEL_H

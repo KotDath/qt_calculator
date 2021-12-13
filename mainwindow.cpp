@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
     QWidget *window = new QWidget{};
-    window->setStyleSheet("background-color: rgba(255, 255, 255, 160)");
+    window->setStyleSheet("background-color: rgba(255, 255, 255, 160) QPushButton#pushButton:hover { background-color: rgb(224, 255, 0); } QPushButton#pushButton:pressed { background-color: rgb(224, 0, 0);}");
     auto layout = new QVBoxLayout{window};
     resultBar = new ResultBar{};
     layout->addWidget(resultBar);

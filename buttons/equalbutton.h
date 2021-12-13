@@ -3,11 +3,10 @@
 
 #include <QPushButton>
 
-class EqualButton : public QPushButton
-{
-    Q_OBJECT
-public:
-    EqualButton(QWidget *parent = nullptr);
+class EqualButton : public QPushButton {
+  Q_OBJECT
+ public:
+  EqualButton(QWidget *parent = nullptr);
 };
 
 #endif // EQUALBUTTON_H

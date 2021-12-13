@@ -9,19 +9,20 @@
 #include "buttons/clearbutton.h"
 
 class MainWindow : public QMainWindow {
-    Q_OBJECT
-public:
-    MainWindow(QWidget *parent = nullptr);
-    void InitOutputLabel(QVBoxLayout* layout);
-    void InitSwitcher(QVBoxLayout* layout);
-    ~MainWindow();
+  Q_OBJECT
+ public:
+  MainWindow(QWidget *parent = nullptr);
+  void InitOutputLabel(QVBoxLayout *layout);
+  void InitSwitcher(QVBoxLayout *layout);
+  ~MainWindow();
 
-public slots:
-    void setCasualMode();
-    void setProfessionalMode();
-private:
-    MainCalculatorPanel* mainPanel;
-    AdditionalCalculatorPanel* additionalPanel;
-    ResultBar* resultBar;
+ public
+  slots:
+      void setCasualMode();
+  void setProfessionalMode();
+ private:
+  MainCalculatorPanel *mainPanel;
+  AdditionalCalculatorPanel *additionalPanel;
+  ResultBar *resultBar;
 };
 #endif // MAINWINDOW_H

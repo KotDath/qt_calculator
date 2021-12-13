@@ -3,11 +3,10 @@
 
 #include <QPushButton>
 
-class DotButton : public QPushButton
-{
-    Q_OBJECT
-public:
-    DotButton(QWidget *parent = nullptr);
+class DotButton : public QPushButton {
+  Q_OBJECT
+ public:
+  DotButton(QWidget *parent = nullptr);
 };
 
 #endif // DOTBUTTON_H

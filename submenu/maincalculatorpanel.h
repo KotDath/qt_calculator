@@ -11,19 +11,22 @@
 #include "buttons/binaryoperationbutton.h"
 
 class MainCalculatorPanel : public QWidget {
-    Q_OBJECT
-public:
-    explicit MainCalculatorPanel(QWidget *parent = nullptr);
-    void ConnectButtons(ResultBar* bar);
-public slots:
-    void Append(int number);
-signals:
-    void PrintLabel(int number);
-private:
-    UnaryOperationButton** unaryButtons;
-    BinaryOperationButton** binaryButtons;
-    DotButton* dotButton;
-    EqualButton* equalButton;
+  Q_OBJECT
+ public:
+  explicit MainCalculatorPanel(QWidget *parent = nullptr);
+  void ConnectButtons(ResultBar *bar);
+ public
+  slots:
+      void Append(int
+  number);
+  signals:
+      void PrintLabel(int
+  number);
+ private:
+  UnaryOperationButton **unaryButtons;
+  BinaryOperationButton **binaryButtons;
+  DotButton *dotButton;
+  EqualButton *equalButton;
 };
 
 #endif // MAINCALCULATORPANEL_H

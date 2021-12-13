@@ -4,9 +4,9 @@
 #include <QPushButton>
 
 class ClearButton : public QPushButton {
-    Q_OBJECT
-public:
-    ClearButton(QWidget *parent = nullptr);
+  Q_OBJECT
+ public:
+  ClearButton(QWidget *parent = nullptr);
 };
 
 #endif // CLEARBUTTON_H

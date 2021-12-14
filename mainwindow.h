@@ -8,6 +8,8 @@
 #include "submenu/additionalcalculatorpanel.h"
 #include "buttons/clearbutton.h"
 
+//!!! В этой ЛР не нужно использовать QMainWindow. Калькулятор должен быть на основе QWidget
+
 class MainWindow : public QMainWindow {
   Q_OBJECT
  public:

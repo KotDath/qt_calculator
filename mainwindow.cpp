@@ -3,13 +3,18 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
   QWidget *window = new QWidget{};
+  
+  //!!! Код не должен быть шире 100 символов.
   window->setStyleSheet(
       "background-color: rgba(255, 255, 255, 160) QPushButton#pushButton:hover { background-color: rgb(224, 255, 0); } QPushButton#pushButton:pressed { background-color: rgb(224, 0, 0);}");
+  
+  
   auto layout = new QVBoxLayout{window};
   resultBar = new ResultBar{};
   layout->addWidget(resultBar);
   InitSwitcher(layout);
 
+  //!!! Для всех объектов желательно сразу задавать объект-родитель при создании. 
   auto panel = new QWidget{};
   auto panelLayout = new QHBoxLayout{panel};
 
@@ -29,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
   layout->addWidget(panel);
   layout->setAlignment(Qt::AlignTop);
   setCentralWidget(window);
-  setWindowTitle("Калькулятор (обычный)");
+  setWindowTitle("Калькулятор (обычный)"); //!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
 
 }
 
@@ -60,11 +65,11 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::setCasualMode() {
-  setWindowTitle("Калькулятор (обычный)");
+  setWindowTitle("Калькулятор (обычный)");//!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
   additionalPanel->hide();
 }
 
 void MainWindow::setProfessionalMode() {
-  setWindowTitle("Калькулятор (инженерный)");
+  setWindowTitle("Калькулятор (инженерный)");//!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
   additionalPanel->show();
 }

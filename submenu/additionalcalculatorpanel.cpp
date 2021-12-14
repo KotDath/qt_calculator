@@ -24,43 +24,43 @@ AdditionalCalculatorPanel::AdditionalCalculatorPanel(QWidget *parent)
 }
 
 void AdditionalCalculatorPanel::InitNames() {
-  unaryButtons[0]->setText("sinh");
-  unaryButtons[1]->setText("sin");
-  unaryButtons[2]->setText("exp");
-  unaryButtons[3]->setText("x\u00B2");
-  unaryButtons[4]->setText("cosh");
-  unaryButtons[5]->setText("cos");
-  unaryButtons[6]->setText("ln");
-  unaryButtons[7]->setText("x\u00B3");
-  unaryButtons[8]->setText("tanh");
-  unaryButtons[9]->setText("tan");
-  unaryButtons[10]->setText("log");
-  unaryButtons[11]->setText("n!");
-  unaryButtons[12]->setText("\u03C0");
-  unaryButtons[13]->setText("\u00B3\u221Ax");
+  unaryButtons[0]->setText(tr("sinh"));
+  unaryButtons[1]->setText(tr("sin"));
+  unaryButtons[2]->setText(tr("exp"));
+  unaryButtons[3]->setText(tr("x\u00B2"));
+  unaryButtons[4]->setText(tr("cosh"));
+  unaryButtons[5]->setText(tr("cos"));
+  unaryButtons[6]->setText(tr("ln"));
+  unaryButtons[7]->setText(tr("x\u00B3"));
+  unaryButtons[8]->setText(tr("tanh"));
+  unaryButtons[9]->setText(tr("tan"));
+  unaryButtons[10]->setText(tr("log"));
+  unaryButtons[11]->setText(tr("n!"));
+  unaryButtons[12]->setText(tr("\u03C0"));
+  unaryButtons[13]->setText(tr("\u00B3\u221Ax"));
 
-  binaryButtons[0]->setText("x\u207F");
-  binaryButtons[1]->setText("\u207F\u221Ax");
+  binaryButtons[0]->setText(tr("x\u207F"));
+  binaryButtons[1]->setText(tr("\u207F\u221Ax"));
 }
 
 void AdditionalCalculatorPanel::InitActions() {
-  unaryButtons[0] = new UnaryOperationButton([](double x) { return sinh(x); });
-  unaryButtons[1] = new UnaryOperationButton([](double x) { return sin(x); });
-  unaryButtons[2] = new UnaryOperationButton([](double x) { return exp(x); });
-  unaryButtons[3] = new UnaryOperationButton([](double x) { return x * x; });
-  unaryButtons[4] = new UnaryOperationButton([](double x) { return cosh(x); });
-  unaryButtons[5] = new UnaryOperationButton([](double x) { return cos(x); });
-  unaryButtons[6] = new UnaryOperationButton([](double x) { return log(x); });
-  unaryButtons[7] = new UnaryOperationButton([](double x) { return x * x * x; });
-  unaryButtons[8] = new UnaryOperationButton([](double x) { return tanh(x); });
-  unaryButtons[9] = new UnaryOperationButton([](double x) { return tan(x); });
-  unaryButtons[10] = new UnaryOperationButton([](double x) { return log10(x); });
-  unaryButtons[11] = new UnaryOperationButton([](double x) { return tgamma(x + 1); });
-  unaryButtons[12] = new UnaryOperationButton([](double x) { return M_PI; });
-  unaryButtons[13] = new UnaryOperationButton([](double x) { return cbrt(x); });
+  unaryButtons[0] = new UnaryOperationButton([](double x) { return sinh(x); }, this);
+  unaryButtons[1] = new UnaryOperationButton([](double x) { return sin(x); }, this);
+  unaryButtons[2] = new UnaryOperationButton([](double x) { return exp(x); }, this);
+  unaryButtons[3] = new UnaryOperationButton([](double x) { return x * x; }, this);
+  unaryButtons[4] = new UnaryOperationButton([](double x) { return cosh(x); }, this);
+  unaryButtons[5] = new UnaryOperationButton([](double x) { return cos(x); }, this);
+  unaryButtons[6] = new UnaryOperationButton([](double x) { return log(x); }, this);
+  unaryButtons[7] = new UnaryOperationButton([](double x) { return x * x * x; }, this);
+  unaryButtons[8] = new UnaryOperationButton([](double x) { return tanh(x); }, this);
+  unaryButtons[9] = new UnaryOperationButton([](double x) { return tan(x); }, this);
+  unaryButtons[10] = new UnaryOperationButton([](double x) { return log10(x); }, this);
+  unaryButtons[11] = new UnaryOperationButton([](double x) { return tgamma(x + 1); }, this);
+  unaryButtons[12] = new UnaryOperationButton([](double x) { return M_PI; }, this);
+  unaryButtons[13] = new UnaryOperationButton([](double x) { return cbrt(x); }, this);
 
-  binaryButtons[0] = new BinaryOperationButton([](double x, double y) { return pow(x, y); }, '^');
-  binaryButtons[1] = new BinaryOperationButton([](double x, double y) { return pow(x, 1 / y); }, '"');
+  binaryButtons[0] = new BinaryOperationButton([](double x, double y) { return pow(x, y); }, '^', this);
+  binaryButtons[1] = new BinaryOperationButton([](double x, double y) { return pow(x, 1 / y); }, '"', this);
 }
 
 void AdditionalCalculatorPanel::ConnectButtons(ResultBar *bar) {

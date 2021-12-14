@@ -4,9 +4,7 @@
 #include <QGridLayout>
 #include <QWidget>
 #include "buttons/numberbutton.h"
-#include "buttons/equalbutton.h"
 #include "buttons/unaryoperationbutton.h"
-#include "buttons/dotbutton.h"
 #include "result_bar/resultbar.h"
 #include "buttons/binaryoperationbutton.h"
 
@@ -25,8 +23,8 @@ class MainCalculatorPanel : public QWidget {
  private:
   UnaryOperationButton **unaryButtons;
   BinaryOperationButton **binaryButtons;
-  DotButton *dotButton;
-  EqualButton *equalButton;
+  QPushButton *dotButton;
+  QPushButton *equalButton;
 };
 
 #endif // MAINCALCULATORPANEL_H

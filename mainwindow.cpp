@@ -1,30 +1,22 @@
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent) {
-  QWidget *window = new QWidget{};
-  
-  //!!! Код не должен быть шире 100 символов.
-  window->setStyleSheet(
-      "background-color: rgba(255, 255, 255, 160) QPushButton#pushButton:hover { background-color: rgb(224, 255, 0); } QPushButton#pushButton:pressed { background-color: rgb(224, 0, 0);}");
-  
-  
-  auto layout = new QVBoxLayout{window};
-  resultBar = new ResultBar{};
+    : QWidget(parent) {
+  auto layout = new QVBoxLayout{this};
+  resultBar = new ResultBar{this};
   layout->addWidget(resultBar);
   InitSwitcher(layout);
 
-  //!!! Для всех объектов желательно сразу задавать объект-родитель при создании. 
-  auto panel = new QWidget{};
+  auto panel = new QWidget{this};
   auto panelLayout = new QHBoxLayout{panel};
 
-  additionalPanel = new AdditionalCalculatorPanel{};
+  additionalPanel = new AdditionalCalculatorPanel{this};
   panelLayout->addWidget(additionalPanel);
   additionalPanel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   additionalPanel->ConnectButtons(resultBar);
   additionalPanel->hide();
 
-  mainPanel = new MainCalculatorPanel{};
+  mainPanel = new MainCalculatorPanel{this};
   panelLayout->addWidget(mainPanel);
   mainPanel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   mainPanel->ConnectButtons(resultBar);
@@ -33,29 +25,24 @@ MainWindow::MainWindow(QWidget *parent)
 
   layout->addWidget(panel);
   layout->setAlignment(Qt::AlignTop);
-  setCentralWidget(window);
-  setWindowTitle("Калькулятор (обычный)"); //!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
-
-}
-
-void MainWindow::InitOutputLabel(QVBoxLayout *layout) {
+  setWindowTitle(tr("Калькулятор (обычный)"));
 
 }
 
 void MainWindow::InitSwitcher(QVBoxLayout *layout) {
-  auto subBar = new QWidget{};
+  auto subBar = new QWidget{this};
   auto switcherLayout = new QHBoxLayout(subBar);
-  auto switcher = new Switcher{};
+  auto switcher = new Switcher{subBar};
   QSizePolicy spLeft(QSizePolicy::Preferred, QSizePolicy::Preferred);
   spLeft.setHorizontalStretch(3);
   switcher->setSizePolicy(spLeft);
   switcherLayout->addWidget(switcher);
-  auto clearButton = new ClearButton{};
-  QObject::connect(clearButton, &ClearButton::clicked, resultBar, &ResultBar::Clear);
+  auto clearButton = new QPushButton{subBar};
+  QObject::connect(clearButton, &QPushButton::clicked, resultBar, &ResultBar::Clear);
   QSizePolicy spRight(QSizePolicy::Preferred, QSizePolicy::Preferred);
   spRight.setHorizontalStretch(1);
   clearButton->setSizePolicy(spRight);
-  clearButton->setText("C");
+  clearButton->setText(tr("C"));
   switcherLayout->addWidget(clearButton);
   layout->addWidget(subBar);
   switcher->LinkWithWindow(this);
@@ -65,11 +52,11 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::setCasualMode() {
-  setWindowTitle("Калькулятор (обычный)");//!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
+  setWindowTitle(tr("Калькулятор (обычный)"));
   additionalPanel->hide();
 }
 
 void MainWindow::setProfessionalMode() {
-  setWindowTitle("Калькулятор (инженерный)");//!!! Строки, которые отображаются в интерфейсе, лучше помещать в tr("...")
+  setWindowTitle(tr("Калькулятор (инженерный)"));
   additionalPanel->show();
 }
